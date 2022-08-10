@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RssFeed", "RssFeed\RssFeed.csproj", "{47BBB1ED-E648-4634-A5BE-0CD716D887B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{20E3CADA-5EE3-471C-A725-E59B7EDFB6C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47BBB1ED-E648-4634-A5BE-0CD716D887B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47BBB1ED-E648-4634-A5BE-0CD716D887B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47BBB1ED-E648-4634-A5BE-0CD716D887B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47BBB1ED-E648-4634-A5BE-0CD716D887B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E3CADA-5EE3-471C-A725-E59B7EDFB6C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E3CADA-5EE3-471C-A725-E59B7EDFB6C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E3CADA-5EE3-471C-A725-E59B7EDFB6C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E3CADA-5EE3-471C-A725-E59B7EDFB6C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {225224D8-F760-40B6-9EBA-FEC8EA64302E}
+	EndGlobalSection
+EndGlobal

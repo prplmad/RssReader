@@ -1,0 +1,125 @@
+﻿@model RssFeed.Models.Settings
+
+@if (ViewBag.SettingsSaved != null && ViewBag.SettingsSaved == true)
+{
+    <script>
+        alert( 'Настройки сохранены' );
+    </script>
+    ViewBag.SettingsSaved = false;
+}
+
+<form method="post" asp-action="Settings">
+
+    <div>
+        <span>RSS каналы</span> <br />
+        <label>URL1</label>
+        @if (Model != null && !String.IsNullOrEmpty(Model.Url[0]))
+        {
+            <input size="50" asp-for="Url[0]" type="text" value=@Model.Url[0]>
+
+            <br />
+
+            <br />
+        }
+        else
+        {
+            <input size="50" asp-for="Url[0]" type="text">
+
+            <br />
+
+            <br />
+        }
+        <label>URL2</label>
+        @if (Model != null && !String.IsNullOrEmpty(Model.Url[1]))
+        {
+            <input size="50" asp-for="Url[1]" type="text" value=@Model.Url[1]>
+
+            <br />
+
+            <br />
+        }
+        else
+        {
+            <input size="50" asp-for="Url[1]" type="text">
+
+            <br />
+
+            <br />
+        }
+        <label>URL3</label>
+        @if (Model != null && !String.IsNullOrEmpty(Model.Url[2]))
+        {
+            <input size="50" asp-for="Url[2]" type="text" value=@Model.Url[2]>
+
+            <br />
+
+            <br />
+        }
+        else
+        {
+            <input size="50" asp-for="Url[2]" type="text">
+
+            <br />
+
+            <br />
+        }
+        <label>URL4</label>
+        @if (Model != null && !String.IsNullOrEmpty(Model.Url[3]))
+        {
+            <input size="50" asp-for="Url[3]" type="text" value=@Model.Url[3]>
+
+            <br />
+
+            <br />
+        }
+        else
+        {
+            <input size="50" asp-for="Url[3]" type="text">
+
+            <br />
+
+            <br />
+        }
+        <label>URL5</label>
+        @if (Model != null && !String.IsNullOrEmpty(Model.Url[4]))
+        {
+            <input size="50" asp-for="Url[4]" type="text" value=@Model.Url[4]>
+
+            <br />
+
+            <br />
+        }
+        else
+        {
+            <input size="50" asp-for="Url[4]" type="text">
+
+            <br />
+
+            <br />
+        }
+    </div>
+
+    <div>
+        <label asp-for="UpdateTime">Частота обновления в минутах</label><br />
+        @if (Model != null)
+        {
+            <input min="5" max="1440" asp-for="UpdateTime" type="number" value=@Model.UpdateTime>
+        }
+        else
+        {
+            <input min="5" max="1440" asp-for="UpdateTime" type="number">
+        }
+    </div>
+
+    <div>
+        <br />
+        <input asp-for="DescriptionTags">
+        <label asp-for="DescriptionTags">Описание в форматированном виде</label>
+    </div>
+
+    <div>
+        <br />
+        <button type="submit">Сохранить</button>
+    </div>
+</form>
+

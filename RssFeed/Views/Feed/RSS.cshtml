@@ -1,0 +1,55 @@
+﻿@model IEnumerable<RssFeed.Models.Item>
+
+
+@if (Model.Count() > 0)
+{
+    <head>
+        <title>RSS</title>
+    </head>
+    <body>
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Дата публикации
+                    </th>
+                    <th>
+                        Ссылка на статью
+                    </th>
+                    <th>
+                        Описание
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td width="10%">@item.Date</td>
+                        <td width="20%"><a href="@item.Url">@item.Title</a></td>
+                        <td width="80%">
+                            <details>
+                                <summary>Раскрыть описание</summary>
+                                @if (@ViewBag.Tags == "true")
+                                {
+                                    @Html.Raw(item.Description)
+                                }
+                                else
+                                {
+                                    @item.Description
+                                }
+                            </details>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </body>
+
+}
+else
+{
+    <p>Записи отсутствуют</p>
+}
+
+
