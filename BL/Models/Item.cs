@@ -8,10 +8,10 @@ namespace BL.Models
 {
     public class Item
     {
-        public String Title { get; set; }
+        public string Title { get; set; }
         public DateTime Date { get; set; }
-        public String Description { get; set; }
-        public String Url { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
 
         public Item(string title, DateTime date, string description, string url)
         {

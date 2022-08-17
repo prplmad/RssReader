@@ -9,56 +9,37 @@ namespace RssFeed.Controllers
     {
         private readonly IDownloadFeedService _download;
         private readonly IConfiguration _configuration;
-        private readonly Settings _settings;
-        public FeedController(IDownloadFeedService download, IConfiguration configuration, Settings settings)
+        private readonly IFeedService _feedService;
+        public FeedController(IDownloadFeedService download, IConfiguration configuration, IFeedService feedService)
         {
             _download = download;
             _configuration = configuration;
-            _settings = settings;
+            _feedService = feedService;
         }
-        public IActionResult RSS()
-        {
+#nullable disable
+        public async Task<IActionResult> RSS()
+        {   
             List<Item> items = new List<Item>();
-            if (Array.TrueForAll(_settings.Url, value =>
-            {
-                return String.IsNullOrEmpty(value);
-            }))
-            {
-                if (_configuration["DescriptionTags"] == "false")
-                {
-                    ViewBag.Tags = "false";
-                }
-                else
-                {
-                    ViewBag.Tags = "true";
-                }
+            var settings = HttpContext.Session.Get<Settings>("settings");
+            settings = _feedService.ChooseSourceForSettings(settings?.FromAPIToBusiness()).FromBusinessToApi();
 
-                foreach (var item in _download.DownloadAsync().Result)
-                {
-                    items.Add(item.FromBusinessToAPI());
-                }
 
-                return View(items);
+            if (settings.DescriptionTags == false)
+            {
+                ViewBag.Tags = "false";
             }
             else
             {
-                if (_settings.DescriptionTags == false)
-                {
-                    ViewBag.Tags = "false";
-                }
-                else
-                {
-                    ViewBag.Tags = "true";
-                }
-
-                foreach (var item in _download.DownloadAsync(SettingsMapper.FromAPIToBusiness(_settings)).Result)
-                {
-                    items.Add(item.FromBusinessToAPI());
-                }
-                return View(items);
+                ViewBag.Tags = "true";
             }
+            ViewBag.UpdateTime = settings.UpdateTime * 60;
 
-
+            var download = await _download.DownloadAsync(settings.Url);
+            foreach (var item in download)
+            {
+                items.Add(item.FromBusinessToAPI());
+            }
+            return View(items);
         }
     }
 }

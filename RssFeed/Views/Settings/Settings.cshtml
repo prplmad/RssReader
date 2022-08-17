@@ -1,13 +1,5 @@
 ﻿@model RssFeed.Models.Settings
 
-@if (ViewBag.SettingsSaved != null && ViewBag.SettingsSaved == true)
-{
-    <script>
-        alert( 'Настройки сохранены' );
-    </script>
-    ViewBag.SettingsSaved = false;
-}
-
 <form method="post" asp-action="Settings">
 
     <div>

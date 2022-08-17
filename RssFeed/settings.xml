@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
 	<RSSUrl>https://habr.com/rss/interesting/</RSSUrl>
-	<RefreshTime>2</RefreshTime>
-	<DescriptionTags>false</DescriptionTags>
+	<UpdateTime>1</UpdateTime> <!--В минутах-->
+	<DescriptionTags>true</DescriptionTags>
 </configuration>

@@ -20,7 +20,6 @@ namespace BL.Services
             {
                 isValid = false;
             }
-
             return isValid;
         }
     }

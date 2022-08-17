@@ -18,12 +18,9 @@ namespace BL.Services
                 DescriptionTags = false,
                 UpdateTime = 0,
                 Url = new string[5]
-
             };
-            if (Array.TrueForAll(settings.Url, value =>
-            {
-                return String.IsNullOrEmpty(value);
-            }))
+            var settingsEmpty = settings.Url.All(String.IsNullOrEmpty);
+            if (settingsEmpty)
             {
                 for (int i = 0; i < _settings.Url.Length; i++)
                 {

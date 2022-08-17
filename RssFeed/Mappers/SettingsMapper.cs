@@ -1,8 +1,8 @@
 ﻿namespace RssFeed.Mappers
 {
-    public class SettingsMapper
+    public static class SettingsMapper
     {
-        public static BL.Models.Settings FromAPIToBusiness(Models.Settings settings)
+        public static BL.Models.Settings FromAPIToBusiness(this RssFeed.Models.Settings settings)
         {
             return new BL.Models.Settings
             {
@@ -12,7 +12,7 @@
             };
         }
 
-        public static Models.Settings FromBusinessToApi(BL.Models.Settings settings)
+        public static RssFeed.Models.Settings FromBusinessToApi(this BL.Models.Settings settings)
         {
             return new Models.Settings
             {
